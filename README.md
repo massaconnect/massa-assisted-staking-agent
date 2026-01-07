@@ -92,8 +92,8 @@ java -jar MassaAgent-macos-x64-1.0.0.jar
 
 ### Clone and Build
 ```bash
-git clone https://github.com/yourusername/massa-agent-desktop.git
-cd massa-agent-desktop
+git clone https://github.com/yourusername/massa-assisted-staking-agent.git
+cd massa-assisted-staking-agent
 
 # Build the project
 ./gradlew build
@@ -241,7 +241,7 @@ Massa Agent Desktop is designed to work seamlessly with **MassaConnect** - a mod
 
 ### Project Structure
 ```
-massa-agent-desktop/
+massa-assisted-staking-agent/
 +-- src/main/kotlin/com/massapay/agent/
 ¦   +-- Main.kt                    # Application entry point
 ¦   +-- bridge/
@@ -287,8 +287,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/massa-agent-desktop/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/massa-agent-desktop/discussions)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/massa-assisted-staking-agent/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/massa-assisted-staking-agent/discussions)
 - **Massa Community**: [Discord](https://discord.gg/massa)
 
 ---
