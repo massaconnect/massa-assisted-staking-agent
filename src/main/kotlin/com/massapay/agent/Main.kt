@@ -40,5 +40,5 @@ fun App() {
 
 fun main() = application {
     val windowState = rememberWindowState(size = DpSize(1000.dp, 650.dp), position = WindowPosition(Alignment.Center))
-    Window(onCloseRequest = { bridgeServer.stop(); exitApplication() }, title = "Massa Agent", state = windowState, resizable = true) { App() }
+    Window(onCloseRequest = { bridgeServer.stop(); exitApplication() }, title = "Massa Assisted Staking Agent", state = windowState, resizable = true) { App() }
 }

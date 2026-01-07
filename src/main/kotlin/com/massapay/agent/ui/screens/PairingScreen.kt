@@ -91,7 +91,7 @@ fun PairingScreen(
                 color = LightTextSecondary
             )
             Text(
-                text = "Massa Agent",
+                text = "Massa Assisted Staking Agent",
                 fontSize = 56.sp,
                 fontWeight = FontWeight.Black,
                 color = LightTextPrimary

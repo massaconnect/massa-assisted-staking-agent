@@ -73,7 +73,7 @@ fun DashboardScreen(
                 }
                 Spacer(Modifier.width(12.dp))
                 Column {
-                    Text("Massa Agent", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = LightTextPrimary)
+                    Text("Massa Assisted Staking Agent", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = LightTextPrimary)
                     Text("Bridge v1.0.0", fontSize = 11.sp, color = LightTextTertiary)
                 }
             }
@@ -1211,7 +1211,7 @@ private fun SettingsContent(
         color = LightTextPrimary
     )
     Text(
-        "Configure Massa Agent settings",
+        "Configure Massa Assisted Staking Agent settings",
         fontSize = 14.sp,
         color = LightTextSecondary
     )
@@ -1410,7 +1410,7 @@ private fun AboutContent() {
             color = LightTextPrimary
         )
         Text(
-            "Information about Massa Agent",
+            "Information about Massa Assisted Staking Agent",
             fontSize = 14.sp,
             color = LightTextSecondary
         )
@@ -1459,7 +1459,7 @@ private fun AboutContent() {
                         Spacer(Modifier.height(16.dp))
                         
                         Text(
-                            "Massa Agent",
+                            "Massa Assisted Staking Agent",
                             fontSize = 28.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
