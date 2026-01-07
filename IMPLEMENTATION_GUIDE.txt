@@ -1,0 +1,91 @@
+﻿# MASSA SUITE - GUÍA DE IMPLEMENTACIÓN COMPLETA
+
+## Estado Actual
+✅ NodeConfig.kt - Creado
+✅ NodeManager.kt - Creado  
+❌ SetupWizard.kt - Necesita crearse
+❌ NodeStatusCard.kt - Necesita crearse
+❌ Theme.kt - Necesita actualizarse
+❌ Main.kt - Necesita actualizarse
+❌ DashboardScreen.kt - Necesita actualizarse
+
+## PASO 1: Actualizar Theme.kt
+
+Abre: src/main/kotlin/com/massapay/agent/ui/theme/Theme.kt
+
+Agrega DESPUÉS de la línea "val LightDivider = Color(0xFFEEEEEE)":
+
+```kotlin
+// DARK THEME COLORS (for Setup Wizard)
+val DarkBackground = Color(0xFF121212)
+val DarkSurface = Color(0xFF1E1E1E)
+val CardBackground = Color(0xFF2A2A2A)
+val MassaRed = Color(0xFFE53935)
+```
+
+## PASO 2: Crear SetupWizard.kt básico
+
+Por simplicidad, vamos a omitir el Setup Wizard complejo.
+En su lugar, el sistema detectará automáticamente si el nodo está instalado.
+
+## PASO 3: Crear NodeStatusCard.kt
+
+Crear archivo: src/main/kotlin/com/massapay/agent/ui/screens/NodeStatusCard.kt
+
+[El contenido completo está en el siguiente mensaje debido a limitaciones de PowerShell]
+
+## PASO 4: Actualizar Main.kt  
+
+Agregar después de "val bridgeServer = BridgeServer(BridgeConfig())":
+
+```kotlin
+val nodeManager = NodeManager()
+```
+
+Modificar Window.onCloseRequest para incluir:
+
+```kotlin
+onCloseRequest = {
+    nodeManager.cleanup()
+    bridgeServer.stop()
+    exitApplication()
+}
+```
+
+En LaunchedEffect, agregar:
+
+```kotlin
+LaunchedEffect(Unit) {
+    bridgeServer.start()
+    // Auto-start node if configured
+    if (nodeManager.config.value.isConfigured && nodeManager.config.value.autoStart) {
+        nodeManager.startNode()
+    }
+}
+```
+
+## PASO 5: Actualizar DashboardScreen.kt
+
+Modificar firma de función:
+
+```kotlin
+fun DashboardScreen(
+    bridgeServer: BridgeServer,
+    nodeManager: NodeManager,
+    onDisconnect: () -> Unit
+)
+```
+
+En el when(currentSection), modificar NavSection.NODE:
+
+```kotlin
+NavSection.NODE -> NodeStatusCard(nodeManager = nodeManager)
+```
+
+## TESTING
+
+Después de estos cambios:
+1. cd C:\Users\mderramus\massa-agent-desktop
+2. .\gradlew.bat build
+3. .\gradlew.bat packageUberJarForCurrentOS
+4. java -jar build\compose\jars\MassaAgent-windows-x64-1.0.0.jar
